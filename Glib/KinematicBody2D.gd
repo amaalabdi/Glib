@@ -1,15 +1,19 @@
- extends KinematicBody2D
+extends KinematicBody2D
 var gravity = Vector2(0,1) # -x = left, +x = right, -y = up , +y = down. The arguments are Vector2(x,y).
 var left = Vector2(-10,0)
 var right = Vector2(10,0)
 var up = Vector2(0,-16)
+var hit = Vector2(0,-gravity.y*10)
 var floors = Vector2(0,-1) #Normal vector to describe what surfaces are considered floors. 
 var jumpcheck = 0 #Checks to see if the player has pressed the jump button. 
+var hitcheck = 0
 func moveleft():
 	if  Input.is_action_pressed("ui_left"):
+		hit.x = 6
 		move_and_collide(left)
 func moveright():
 	if Input.is_action_pressed("ui_right"):
+		hit.x = -6
 		move_and_collide(right)
 func jump():
 	if Input.is_action_just_pressed("ui_up"): #If the jump button is pressed and the player is standing on the ground, jumpcheck is set to 1, and the up vector is applied to the glib.
@@ -17,8 +21,16 @@ func jump():
 			jumpcheck = 1
 			move_and_collide(up)
 func bumped(body): #If glib hits another platform while jumping, it will stop the jump momentum.
+	hitcheck = 0
 	jumpcheck = 0
+func knockback(body):
+	if (body.get_name() == "Glib"):
+		hitcheck = 1
+		move_and_collide(hit)
 func _physics_process(delta):  
+	if(is_on_floor()):
+		hit.x = (get_node("/root/Node2D/Enemy1").enemy1move.x) * 2
+		hit.y = -gravity.y*10
 	move_and_slide(gravity,floors) #Argument 1 is to move the body a certain direction, Argument 2 is the floor vector. The gravity vector is applied to glib  
 	moveright()
 	moveleft()
@@ -28,6 +40,12 @@ func _physics_process(delta):
 			gravity.y += 0.004
 	if(!is_on_floor() && jumpcheck == 1): #If the player if off the ground, and had pressed the jump button, the up vector is applied to glib, while also in the opposite direction of the gravity vector, which is increasing.
 		move_and_collide(up)
+	if(!is_on_floor() && hitcheck == 1):
+		move_and_collide(hit)
+		if(Input.is_action_pressed("ui_left") || Input.is_action_pressed("ui_Right")):
+			hitcheck = 0
+			gravity.y = 0
 	if(is_on_floor() && !Input.is_action_just_pressed("ui_up")): #When player lands, gravity and jumpcheck are both reset.
 		jumpcheck = 0
+		hitcheck = 0
 		gravity.y = 1
