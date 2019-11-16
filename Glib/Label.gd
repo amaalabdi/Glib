@@ -1,6 +1,6 @@
 extends Label
 var count = 0
-var seconds = 10
+var seconds = 0
 var minutes = 1
 var stoptimer = 0
 var timesubtracted = 15
