@@ -24,7 +24,8 @@ func updatetime():
 	if (count % 60 == 0):
 		seconds -= 1
 func addtime(body):
-	seconds += 30
+	if(body.get_name() == "Glib"):
+		seconds += 30
 func taketime(body):
 	if (body.get_name() == "Glib"):
 		seconds -= timesubtracted

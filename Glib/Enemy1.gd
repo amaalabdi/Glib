@@ -11,4 +11,6 @@ func _physics_process(delta):
 	if(!is_on_floor()): 
 		for x in range (0,10000):
 			gravity.y += 0.002
+	if(is_on_floor()):
+		gravity.y = 1
 	enemy1mover()

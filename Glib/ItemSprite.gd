@@ -1,5 +1,6 @@
 extends Sprite
 func hideitem(body):
-	hide()
+	if(body.get_name() == "Glib"):
+		hide()
 func unhideitem():
 	set_visible(true)

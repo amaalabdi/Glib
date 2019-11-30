@@ -1,3 +1,4 @@
 extends Timer
 func starttimer(body):
-	start()
+	if(body.get_name() == "Glib"):
+		start()
