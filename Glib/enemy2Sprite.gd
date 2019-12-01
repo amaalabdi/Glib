@@ -1,4 +1,4 @@
-extends Sprite
+extends AnimatedSprite
 func GoToPlayerSprite():
 	if(get_node("../../Glib/GlibCollisionShape2D").get_global_position().y > position.y + 15):
 		position.x = position.x

@@ -1,36 +1,55 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://Enemy2.gd" type="Script" id=1]
 [ext_resource path="res://enemy2CollisionShape2D.gd" type="Script" id=2]
 [ext_resource path="res://drill_npc_idle_1.png" type="Texture" id=3]
-[ext_resource path="res://enemy2Sprite.gd" type="Script" id=4]
-[ext_resource path="res://enemy2areaCollisionShape2D.gd" type="Script" id=5]
-[ext_resource path="res://DigTimer.gd" type="Script" id=6]
-[ext_resource path="res://DigUpTimer.gd" type="Script" id=7]
-[ext_resource path="res://DelayTimer.gd" type="Script" id=8]
-[ext_resource path="res://HitAreaShape2D.gd" type="Script" id=9]
-[ext_resource path="res://tiles.tres" type="TileSet" id=10]
-[ext_resource path="res://Enemy1.gd" type="Script" id=11]
-[ext_resource path="res://fluff_idle_0.png" type="Texture" id=12]
-[ext_resource path="res://Item.gd" type="Script" id=13]
-[ext_resource path="res://Item.png" type="Texture" id=14]
-[ext_resource path="res://ItemSprite.gd" type="Script" id=15]
-[ext_resource path="res://ItemTimer.gd" type="Script" id=16]
-[ext_resource path="res://KinematicBody2D.gd" type="Script" id=17]
-[ext_resource path="res://glib_idle_1.png" type="Texture" id=18]
-[ext_resource path="res://GlibSprite.gd" type="Script" id=19]
-[ext_resource path="res://Label.gd" type="Script" id=20]
-[ext_resource path="res://Label2.gd" type="Script" id=21]
-[ext_resource path="res://InvincibilityTimer.gd" type="Script" id=22]
-[ext_resource path="res://Jumper.gd" type="Script" id=23]
-[ext_resource path="res://trap_enemy_0.png" type="Texture" id=24]
-[ext_resource path="res://Sprite.gd" type="Script" id=25]
-[ext_resource path="res://JumpDelayTimer.gd" type="Script" id=26]
-[ext_resource path="res://Floater.gd" type="Script" id=27]
-[ext_resource path="res://float_enemy_still.png" type="Texture" id=28]
+[ext_resource path="res://drill_npc_idle_2.png" type="Texture" id=4]
+[ext_resource path="res://enemy2Sprite.gd" type="Script" id=5]
+[ext_resource path="res://enemy2areaCollisionShape2D.gd" type="Script" id=6]
+[ext_resource path="res://DigTimer.gd" type="Script" id=7]
+[ext_resource path="res://DigUpTimer.gd" type="Script" id=8]
+[ext_resource path="res://DelayTimer.gd" type="Script" id=9]
+[ext_resource path="res://HitAreaShape2D.gd" type="Script" id=10]
+[ext_resource path="res://tiles.tres" type="TileSet" id=11]
+[ext_resource path="res://Enemy1.gd" type="Script" id=12]
+[ext_resource path="res://fluff_idle_0.png" type="Texture" id=13]
+[ext_resource path="res://Item.gd" type="Script" id=14]
+[ext_resource path="res://Item.png" type="Texture" id=15]
+[ext_resource path="res://ItemSprite.gd" type="Script" id=16]
+[ext_resource path="res://ItemTimer.gd" type="Script" id=17]
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=18]
+[ext_resource path="res://glib_walk_left_1.png" type="Texture" id=19]
+[ext_resource path="res://flashingframe.png" type="Texture" id=20]
+[ext_resource path="res://glib_walk_left_2.png" type="Texture" id=21]
+[ext_resource path="res://GlibWalkLeftFlashing.gd" type="Script" id=22]
+[ext_resource path="res://GlibWalkLeft.gd" type="Script" id=23]
+[ext_resource path="res://glib_walk_1.png" type="Texture" id=24]
+[ext_resource path="res://glib_walk_2.png" type="Texture" id=25]
+[ext_resource path="res://GlibWalkRightFlashing.gd" type="Script" id=26]
+[ext_resource path="res://GlibWalkRight.gd" type="Script" id=27]
+[ext_resource path="res://glib_idle_1.png" type="Texture" id=28]
+[ext_resource path="res://glib_idle_2.png" type="Texture" id=29]
+[ext_resource path="res://GlibSprite.gd" type="Script" id=30]
+[ext_resource path="res://Label.gd" type="Script" id=31]
+[ext_resource path="res://Label2.gd" type="Script" id=32]
+[ext_resource path="res://InvincibilityTimer.gd" type="Script" id=33]
+[ext_resource path="res://Jumper.gd" type="Script" id=34]
+[ext_resource path="res://trap_enemy_0.png" type="Texture" id=35]
+[ext_resource path="res://Sprite.gd" type="Script" id=36]
+[ext_resource path="res://JumpDelayTimer.gd" type="Script" id=37]
+[ext_resource path="res://Floater.gd" type="Script" id=38]
+[ext_resource path="res://float_enemy_still.png" type="Texture" id=39]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.24414, 31.7089 )
+
+[sub_resource type="SpriteFrames" id=18]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 5149.52, 1805.95 )
@@ -47,22 +66,62 @@ extents = Vector2( 124.031, 32.0531 )
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 13, 13 )
 
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 5.50891, 30.1562 )
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
 
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 47.2668, 18.1923 )
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 19 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
-[sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 6489.54, 1920.77 )
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 24 ), ExtResource( 20 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
 
-[sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 49.8291, 21.2245 )
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ ExtResource( 24 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=17]
+animations = [ {
+"frames": [ ExtResource( 28 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="RectangleShape2D" id=11]
-extents = Vector2( 26.6635, 1.80869 )
+extents = Vector2( 5.50891, 30.1562 )
 
 [sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 47.2668, 18.1923 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 6489.54, 1920.77 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 49.8291, 21.2245 )
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 26.6635, 1.80869 )
+
+[sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 2.17352, 27.147 )
 
 [node name="Node2D" type="Node2D"]
@@ -76,11 +135,12 @@ position = Vector2( 764.195, 224.621 )
 shape = SubResource( 1 )
 script = ExtResource( 2 )
 
-[node name="enemy2Sprite" type="Sprite" parent="Enemy2"]
+[node name="enemy2Sprite" type="AnimatedSprite" parent="Enemy2"]
 position = Vector2( 762.48, 220.384 )
 scale = Vector2( 0.804495, 0.744682 )
-texture = ExtResource( 3 )
-script = ExtResource( 4 )
+frames = SubResource( 18 )
+playing = true
+script = ExtResource( 5 )
 
 [node name="enemy2detectionArea2D" type="Area2D" parent="Enemy2"]
 
@@ -88,28 +148,29 @@ script = ExtResource( 4 )
 visible = false
 position = Vector2( 764.173, 225.115 )
 shape = SubResource( 2 )
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 
 [node name="DigTimer" type="Timer" parent="Enemy2"]
 wait_time = 0.5
 one_shot = true
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
 [node name="DigUpTimer" type="Timer" parent="Enemy2"]
 wait_time = 0.2
 one_shot = true
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 
 [node name="DelayTimer" type="Timer" parent="Enemy2"]
 one_shot = true
-script = ExtResource( 8 )
+script = ExtResource( 9 )
 
 [node name="enemy2HitArea" type="Area2D" parent="Enemy2"]
+editor/display_folded = true
 
 [node name="HitAreaShape2D" type="CollisionShape2D" parent="Enemy2/enemy2HitArea"]
 position = Vector2( 764.222, 224.891 )
 shape = SubResource( 3 )
-script = ExtResource( 9 )
+script = ExtResource( 10 )
 
 [node name="platform" type="StaticBody2D" parent="."]
 editor/display_folded = true
@@ -154,21 +215,21 @@ position = Vector2( 1278.02, 480.574 )
 shape = SubResource( 5 )
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource( 10 )
+tile_set = ExtResource( 11 )
 format = 1
 tile_data = PoolIntArray( 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 524276, 0, 0, 524277, 0, 0, 524278, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458770, 0, 0, 458772, 0, 0, 655353, 0, 0, 655355, 0, 0, 655356, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0 )
 
 [node name="Enemy1" type="KinematicBody2D" parent="."]
 editor/display_folded = true
-script = ExtResource( 11 )
+script = ExtResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Enemy1"]
-position = Vector2( -289.036, 538.366 )
+position = Vector2( 807.337, 409.453 )
 polygon = PoolVector2Array( -20.0756, -36.047, -28.2689, -15.2487, -25.1176, 0.507507, -11.8824, 38.3225, 11.4368, 38.3225, 24.6721, 1.76801, 27.8233, -15.2487, 18.3696, -36.047 )
 
 [node name="Sprite" type="Sprite" parent="Enemy1"]
-position = Vector2( -291.696, 540.616 )
-texture = ExtResource( 12 )
+position = Vector2( 803.449, 412.931 )
+texture = ExtResource( 13 )
 
 [node name="MovementTimer" type="Timer" parent="Enemy1"]
 wait_time = 3.0
@@ -177,11 +238,12 @@ autostart = true
 [node name="enemy1Area2D" type="Area2D" parent="Enemy1"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemy1/enemy1Area2D"]
-position = Vector2( -427.806, 203.836 )
+position = Vector2( 667.339, 77.3787 )
 polygon = PoolVector2Array( 118.154, 325.617, 118.372, 341.292, 120.078, 357.787, 120.662, 370.356, 157.457, 369.52, 158.188, 357.787, 159.326, 338.448, 159.129, 326.872, 158.188, 295.788, 138.849, 291.238, 117.803, 295.788 )
 
 [node name="Item" type="Area2D" parent="."]
-script = ExtResource( 13 )
+editor/display_folded = true
+script = ExtResource( 14 )
 
 [node name="ItemCollisionShape2D" type="CollisionShape2D" parent="Item"]
 position = Vector2( 766, 145 )
@@ -190,28 +252,59 @@ shape = SubResource( 6 )
 [node name="ItemSprite" type="Sprite" parent="Item"]
 position = Vector2( 766.07, 145.071 )
 scale = Vector2( 0.182594, 0.184651 )
-texture = ExtResource( 14 )
-script = ExtResource( 15 )
+texture = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="ItemTimer" type="Timer" parent="Item"]
 wait_time = 15.0
 one_shot = true
-script = ExtResource( 16 )
+script = ExtResource( 17 )
 
 [node name="Glib" type="KinematicBody2D" parent="."]
 editor/display_folded = true
 collision_mask = 0
-script = ExtResource( 17 )
+script = ExtResource( 18 )
 
 [node name="GlibCollisionShape2D" type="CollisionPolygon2D" parent="Glib"]
 position = Vector2( 513.577, 419.996 )
 polygon = PoolVector2Array( -26.3994, 24.8109, 21.7024, 25.2992, 15.6665, 10.6908, 14.4881, -0.537445, 6.90121, -17.2874, -1.1582, -27.1721, -1.3006, -27.0297, -10.1155, -19.1782, -14.9234, -3.39096, -9.91785, 7.71884 )
 
-[node name="GlibSprite" type="Sprite" parent="Glib"]
+[node name="GlibWalkLeftFlashing" type="AnimatedSprite" parent="Glib"]
+visible = false
+position = Vector2( 513.952, 422.751 )
+frames = SubResource( 7 )
+frame = 1
+playing = true
+script = ExtResource( 22 )
+
+[node name="GlibWalkLeft" type="AnimatedSprite" parent="Glib"]
+visible = false
+position = Vector2( 513.067, 422.601 )
+frames = SubResource( 8 )
+playing = true
+script = ExtResource( 23 )
+
+[node name="GlibWalkRightFlashing" type="AnimatedSprite" parent="Glib"]
+visible = false
+position = Vector2( 510.805, 423.27 )
+frames = SubResource( 9 )
+frame = 2
+playing = true
+script = ExtResource( 26 )
+
+[node name="GlibWalkRight" type="AnimatedSprite" parent="Glib"]
+visible = false
+position = Vector2( 509.589, 421.253 )
+frames = SubResource( 10 )
+playing = true
+script = ExtResource( 27 )
+
+[node name="GlibSprite" type="AnimatedSprite" parent="Glib"]
 position = Vector2( 511.326, 422.171 )
 scale = Vector2( 0.903064, 0.978567 )
-texture = ExtResource( 18 )
-script = ExtResource( 19 )
+frames = SubResource( 17 )
+playing = true
+script = ExtResource( 30 )
 
 [node name="Camera2D" type="Camera2D" parent="Glib"]
 editor/display_folded = true
@@ -226,63 +319,64 @@ margin_left = 860.0
 margin_top = 11.0
 margin_right = 1005.0
 margin_bottom = 44.0
-script = ExtResource( 20 )
+script = ExtResource( 31 )
 
 [node name="countuptimer" type="Label" parent="Glib/Camera2D"]
 margin_left = 19.0
 margin_top = 11.0
 margin_right = 154.0
 margin_bottom = 45.0
-script = ExtResource( 21 )
+script = ExtResource( 32 )
 
 [node name="GlibArea2D" type="Area2D" parent="Glib"]
+editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Glib/GlibArea2D"]
 position = Vector2( 511.912, 418.115 )
-shape = SubResource( 7 )
+shape = SubResource( 11 )
 
 [node name="InvincibilityTimer" type="Timer" parent="Glib"]
 wait_time = 2.0
 one_shot = true
-script = ExtResource( 22 )
+script = ExtResource( 33 )
 
 [node name="Jumper" type="KinematicBody2D" parent="."]
 editor/display_folded = true
-script = ExtResource( 23 )
+script = ExtResource( 34 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jumper"]
 position = Vector2( -630.057, 429.938 )
-shape = SubResource( 8 )
+shape = SubResource( 12 )
 
 [node name="Sprite" type="Sprite" parent="Jumper"]
 position = Vector2( -632.975, 418.544 )
-texture = ExtResource( 24 )
-script = ExtResource( 25 )
+texture = ExtResource( 35 )
+script = ExtResource( 36 )
 
 [node name="JumperDetectionArea2D" type="Area2D" parent="Jumper"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jumper/JumperDetectionArea2D"]
 visible = false
 position = Vector2( -607.569, 434.318 )
-shape = SubResource( 9 )
+shape = SubResource( 13 )
 
 [node name="JumpDelayTimer" type="Timer" parent="Jumper"]
-script = ExtResource( 26 )
+script = ExtResource( 37 )
 
 [node name="JumperHitArea" type="Area2D" parent="Jumper"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jumper/JumperHitArea"]
 position = Vector2( -630.167, 429.54 )
-shape = SubResource( 10 )
+shape = SubResource( 14 )
 
 [node name="Floater" type="KinematicBody2D" parent="."]
 editor/display_folded = true
-script = ExtResource( 27 )
+script = ExtResource( 38 )
 
 [node name="Sprite" type="Sprite" parent="Floater"]
 position = Vector2( 111.287, 135.509 )
 scale = Vector2( 1.27293, 1.16878 )
-texture = ExtResource( 28 )
+texture = ExtResource( 39 )
 
 [node name="BottomArea2D" type="Area2D" parent="Floater"]
 editor/display_folded = true
@@ -290,7 +384,7 @@ position = Vector2( 0, -1.58667 )
 
 [node name="FloaterBottom" type="CollisionShape2D" parent="Floater/BottomArea2D"]
 position = Vector2( 110.593, 166.956 )
-shape = SubResource( 11 )
+shape = SubResource( 15 )
 
 [node name="TopArea2D2" type="Area2D" parent="Floater"]
 editor/display_folded = true
@@ -298,76 +392,84 @@ position = Vector2( 0, -1.58667 )
 
 [node name="FloaterTop" type="CollisionShape2D" parent="Floater/TopArea2D2"]
 position = Vector2( 110.443, 107.778 )
-shape = SubResource( 11 )
+shape = SubResource( 15 )
 
 [node name="RightArea2D" type="Area2D" parent="Floater"]
 editor/display_folded = true
 
 [node name="FloaterRight" type="CollisionShape2D" parent="Floater/RightArea2D"]
 position = Vector2( 139.874, 135.56 )
-shape = SubResource( 12 )
+shape = SubResource( 16 )
 
 [node name="LeftArea2D2" type="Area2D" parent="Floater"]
 editor/display_folded = true
 
 [node name="FloaterLeft" type="CollisionShape2D" parent="Floater/LeftArea2D2"]
 position = Vector2( 80.8713, 135.463 )
-shape = SubResource( 12 )
+shape = SubResource( 16 )
 [connection signal="delay" from="Enemy2" to="Enemy2/DelayTimer" method="StartDelayTimer"]
 [connection signal="digging" from="Enemy2/enemy2CollisionShape2D" to="Enemy2/DigTimer" method="startdigging"]
 [connection signal="startdigging" from="Enemy2/enemy2CollisionShape2D" to="Enemy2/enemy2CollisionShape2D" method="dig"]
 [connection signal="body_entered" from="Enemy2/enemy2detectionArea2D" to="Enemy2/enemy2CollisionShape2D" method="entered"]
-[connection signal="timeout" from="Enemy2/DigTimer" to="Enemy2/enemy2Sprite" method="GoToPlayerSprite"]
 [connection signal="timeout" from="Enemy2/DigTimer" to="Enemy2/enemy2HitArea/HitAreaShape2D" method="GoToPlayerHitArea"]
 [connection signal="timeout" from="Enemy2/DigTimer" to="Enemy2/enemy2detectionArea2D/enemy2areaCollisionShape2D" method="GoToPlayerAreaCollision"]
 [connection signal="timeout" from="Enemy2/DigTimer" to="Enemy2/enemy2CollisionShape2D" method="GoToPlayerCollision"]
 [connection signal="timeout" from="Enemy2/DigTimer" to="Enemy2/DigUpTimer" method="startdiggingup"]
+[connection signal="timeout" from="Enemy2/DigTimer" to="Enemy2/enemy2Sprite" method="GoToPlayerSprite"]
 [connection signal="timeout" from="Enemy2/DigUpTimer" to="Enemy2" method="diggingup"]
 [connection signal="timeout" from="Enemy2/DelayTimer" to="Enemy2/enemy2CollisionShape2D" method="dig"]
-[connection signal="body_entered" from="Enemy2/enemy2HitArea" to="Glib/GlibSprite" method="InvincibilityFlashing"]
 [connection signal="body_entered" from="Enemy2/enemy2HitArea" to="Glib/InvincibilityTimer" method="starttimer"]
 [connection signal="body_entered" from="Enemy2/enemy2HitArea" to="Glib/Camera2D/countdowntimer" method="taketime"]
 [connection signal="body_entered" from="Enemy2/enemy2HitArea" to="Glib" method="knockback"]
+[connection signal="body_entered" from="Enemy2/enemy2HitArea" to="Glib/GlibSprite" method="InvincibilityFlashing"]
 [connection signal="timeout" from="Enemy1/MovementTimer" to="Enemy1" method="turn"]
-[connection signal="body_entered" from="Enemy1/enemy1Area2D" to="Glib/GlibSprite" method="InvincibilityFlashing"]
 [connection signal="body_entered" from="Enemy1/enemy1Area2D" to="Glib/InvincibilityTimer" method="starttimer"]
 [connection signal="body_entered" from="Enemy1/enemy1Area2D" to="Glib/Camera2D/countdowntimer" method="taketime"]
 [connection signal="body_entered" from="Enemy1/enemy1Area2D" to="Glib" method="knockback"]
+[connection signal="body_entered" from="Enemy1/enemy1Area2D" to="Glib/GlibSprite" method="InvincibilityFlashing"]
 [connection signal="body_entered" from="Item" to="Item/ItemSprite" method="hideitem"]
 [connection signal="body_entered" from="Item" to="Item" method="disable"]
 [connection signal="body_entered" from="Item" to="Item/ItemTimer" method="starttimer"]
 [connection signal="body_entered" from="Item" to="Glib/Camera2D/countdowntimer" method="addtime"]
 [connection signal="timeout" from="Item/ItemTimer" to="Item/ItemSprite" method="unhideitem"]
 [connection signal="timeout" from="Item/ItemTimer" to="Item" method="enable"]
+[connection signal="stopleft" from="Glib" to="Glib/GlibWalkLeft" method="stopwalkingleft"]
+[connection signal="stopleftflashing" from="Glib" to="Glib/GlibWalkLeftFlashing" method="stopwalkingleftflashing"]
+[connection signal="stopright" from="Glib" to="Glib/GlibWalkRight" method="stopwalkingright"]
+[connection signal="stoprightflashing" from="Glib" to="Glib/GlibWalkRightFlashing" method="stopwalkingrightflashing"]
+[connection signal="walkleft" from="Glib" to="Glib/GlibWalkLeft" method="startwalkingleft"]
+[connection signal="walkleftflashing" from="Glib" to="Glib/GlibWalkLeftFlashing" method="startwalkingleftflashing"]
+[connection signal="walkright" from="Glib" to="Glib/GlibWalkRight" method="startwalkingright"]
+[connection signal="walkrightflashing" from="Glib" to="Glib/GlibWalkRightFlashing" method="startwalkingrightflashing"]
 [connection signal="TimesUp" from="Glib/Camera2D/countdowntimer" to="Glib/Camera2D/countuptimer" method="TimerUp"]
-[connection signal="body_entered" from="Glib/GlibArea2D" to="Glib" method="knockback"]
 [connection signal="body_entered" from="Glib/GlibArea2D" to="Glib" method="bumped"]
-[connection signal="timeout" from="Glib/InvincibilityTimer" to="Glib/GlibSprite" method="StopInvincibilityFlashing"]
+[connection signal="body_entered" from="Glib/GlibArea2D" to="Glib" method="knockback"]
 [connection signal="timeout" from="Glib/InvincibilityTimer" to="Glib/Camera2D/countdowntimer" method="resettimesubtracted"]
+[connection signal="timeout" from="Glib/InvincibilityTimer" to="Glib/GlibSprite" method="StopInvincibilityFlashing"]
 [connection signal="jumpdelay" from="Jumper" to="Jumper/JumpDelayTimer" method="startjumpdelaytimer"]
 [connection signal="body_entered" from="Jumper/JumperDetectionArea2D" to="Jumper" method="enemyjump"]
 [connection signal="timeout" from="Jumper/JumpDelayTimer" to="Jumper" method="JumpAgain"]
-[connection signal="body_entered" from="Jumper/JumperHitArea" to="Glib/GlibSprite" method="InvincibilityFlashing"]
 [connection signal="body_entered" from="Jumper/JumperHitArea" to="Glib/InvincibilityTimer" method="starttimer"]
 [connection signal="body_entered" from="Jumper/JumperHitArea" to="Glib/Camera2D/countdowntimer" method="taketime"]
 [connection signal="body_entered" from="Jumper/JumperHitArea" to="Glib" method="knockback"]
-[connection signal="body_entered" from="Floater/BottomArea2D" to="Glib/GlibSprite" method="InvincibilityFlashing"]
+[connection signal="body_entered" from="Jumper/JumperHitArea" to="Glib/GlibSprite" method="InvincibilityFlashing"]
 [connection signal="body_entered" from="Floater/BottomArea2D" to="Glib/InvincibilityTimer" method="starttimer"]
 [connection signal="body_entered" from="Floater/BottomArea2D" to="Glib/Camera2D/countdowntimer" method="taketime"]
 [connection signal="body_entered" from="Floater/BottomArea2D" to="Glib" method="knockback"]
 [connection signal="body_entered" from="Floater/BottomArea2D" to="Floater" method="BounceGround"]
-[connection signal="body_entered" from="Floater/TopArea2D2" to="Glib/GlibSprite" method="InvincibilityFlashing"]
+[connection signal="body_entered" from="Floater/BottomArea2D" to="Glib/GlibSprite" method="InvincibilityFlashing"]
 [connection signal="body_entered" from="Floater/TopArea2D2" to="Glib/InvincibilityTimer" method="starttimer"]
 [connection signal="body_entered" from="Floater/TopArea2D2" to="Glib/Camera2D/countdowntimer" method="taketime"]
 [connection signal="body_entered" from="Floater/TopArea2D2" to="Glib" method="knockback"]
 [connection signal="body_entered" from="Floater/TopArea2D2" to="Floater" method="BounceGround"]
-[connection signal="body_entered" from="Floater/RightArea2D" to="Glib/GlibSprite" method="InvincibilityFlashing"]
+[connection signal="body_entered" from="Floater/TopArea2D2" to="Glib/GlibSprite" method="InvincibilityFlashing"]
 [connection signal="body_entered" from="Floater/RightArea2D" to="Glib/InvincibilityTimer" method="starttimer"]
 [connection signal="body_entered" from="Floater/RightArea2D" to="Glib/Camera2D/countdowntimer" method="taketime"]
 [connection signal="body_entered" from="Floater/RightArea2D" to="Glib" method="knockback"]
 [connection signal="body_entered" from="Floater/RightArea2D" to="Floater" method="BounceSides"]
-[connection signal="body_entered" from="Floater/LeftArea2D2" to="Glib/GlibSprite" method="InvincibilityFlashing"]
+[connection signal="body_entered" from="Floater/RightArea2D" to="Glib/GlibSprite" method="InvincibilityFlashing"]
 [connection signal="body_entered" from="Floater/LeftArea2D2" to="Glib/InvincibilityTimer" method="starttimer"]
 [connection signal="body_entered" from="Floater/LeftArea2D2" to="Glib/Camera2D/countdowntimer" method="taketime"]
 [connection signal="body_entered" from="Floater/LeftArea2D2" to="Glib" method="knockback"]
 [connection signal="body_entered" from="Floater/LeftArea2D2" to="Floater" method="BounceSides"]
+[connection signal="body_entered" from="Floater/LeftArea2D2" to="Glib/GlibSprite" method="InvincibilityFlashing"]
