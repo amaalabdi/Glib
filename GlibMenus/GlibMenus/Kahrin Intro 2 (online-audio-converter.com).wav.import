@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Kahrin Intro 2 (online-audio-converter.com).wav-5c33266d5d3722911793354f8f67f163.sample"
+
+[deps]
+
+source_file="res://Kahrin Intro 2 (online-audio-converter.com).wav"
+dest_files=[ "res://.import/Kahrin Intro 2 (online-audio-converter.com).wav-5c33266d5d3722911793354f8f67f163.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

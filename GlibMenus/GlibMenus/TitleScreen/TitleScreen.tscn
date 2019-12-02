@@ -1,0 +1,96 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://TitleScreen/title_screen.gd" type="Script" id=1]
+[ext_resource path="res://GlibLogo1.png" type="Texture" id=2]
+[ext_resource path="res://Buttons/NewGameButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://misc_menu_2.wav" type="AudioStream" id=4]
+[ext_resource path="res://Buttons/OptionsButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://TitleScreen/UISoundEffect.gd" type="Script" id=6]
+[ext_resource path="res://spritelogo.png" type="Texture" id=7]
+[ext_resource path="res://PixelMiners-KKal.otf" type="DynamicFontData" id=8]
+[ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=9]
+[ext_resource path="res://fade_in/Fade_in.gd" type="Script" id=10]
+[ext_resource path="res://Kahrin Intro 2 (online-audio-converter.com).wav" type="AudioStream" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 15
+font_data = ExtResource( 8 )
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Menu" type="VBoxContainer" parent="."]
+margin_left = 100.0
+margin_top = 70.0
+margin_right = 930.0
+margin_bottom = 510.0
+
+[node name="Logo" type="TextureRect" parent="Menu"]
+margin_right = 830.0
+margin_bottom = 176.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="CenterRow" type="HBoxContainer" parent="Menu"]
+margin_top = 180.0
+margin_right = 830.0
+margin_bottom = 376.0
+size_flags_vertical = 3
+
+[node name="Buttons" type="VBoxContainer" parent="Menu/CenterRow"]
+margin_right = 360.0
+margin_bottom = 196.0
+size_flags_vertical = 3
+custom_constants/separation = 20
+alignment = 1
+
+[node name="NewGameButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 3 )]
+margin_top = 28.0
+margin_bottom = 88.0
+rect_min_size = Vector2( 360, 60 )
+scene_to_load = "res://gameStart/game.tscn"
+
+[node name="UISoundEffect" type="AudioStreamPlayer" parent="Menu/CenterRow/Buttons/NewGameButton"]
+stream = ExtResource( 4 )
+
+[node name="OptionsButton2" parent="Menu/CenterRow/Buttons" instance=ExtResource( 5 )]
+margin_top = 108.0
+margin_right = 360.0
+margin_bottom = 168.0
+rect_min_size = Vector2( 360, 60 )
+scene_to_load = "res://gameStart/OptionsMenu.tscn"
+
+[node name="UISoundEffect" type="AudioStreamPlayer" parent="Menu/CenterRow/Buttons/OptionsButton2"]
+stream = ExtResource( 4 )
+script = ExtResource( 6 )
+
+[node name="spritelogo" type="Sprite" parent="Menu/CenterRow"]
+position = Vector2( 612.71, 83.8432 )
+scale = Vector2( 0.55192, 0.504294 )
+texture = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="Menu"]
+margin_top = 380.0
+margin_right = 830.0
+margin_bottom = 440.0
+rect_min_size = Vector2( 360, 60 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.670588, 0.129412, 0.129412, 1 )
+custom_constants/shadow_offset_x = -2
+custom_constants/shadow_offset_y = -1
+text = "version 1.0.0
+created by Folasade Adeniji, Amaal Abdi, Vincent Lee and Kahrin Huggins"
+align = 1
+
+[node name="FadeIn" parent="." instance=ExtResource( 9 )]
+visible = false
+script = ExtResource( 10 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+autoplay = true
+[connection signal="button_down" from="Menu/CenterRow/Buttons/NewGameButton" to="Menu/CenterRow/Buttons/NewGameButton" method="_on_NewGameButton_button_down"]
+[connection signal="pressed" from="Menu/CenterRow/Buttons/NewGameButton" to="Menu/CenterRow/Buttons/NewGameButton" method="_on_NewGameButton_pressed"]
