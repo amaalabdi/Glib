@@ -54,16 +54,15 @@ scene_to_load = "res://gameStart/game.tscn"
 
 [node name="UISoundEffect" type="AudioStreamPlayer" parent="Menu/CenterRow/Buttons/NewGameButton"]
 stream = ExtResource( 4 )
-autoplay = true
 
-[node name="OptionsButton2" parent="Menu/CenterRow/Buttons" instance=ExtResource( 5 )]
+[node name="LevelSelectButton2" parent="Menu/CenterRow/Buttons" instance=ExtResource( 5 )]
 margin_top = 108.0
 margin_right = 360.0
 margin_bottom = 168.0
 rect_min_size = Vector2( 360, 60 )
-scene_to_load = "res://gameStart/Options.tscn"
+scene_to_load = "res://gameStart/LevelSelect.scn"
 
-[node name="UISoundEffect" type="AudioStreamPlayer" parent="Menu/CenterRow/Buttons/OptionsButton2"]
+[node name="UISoundEffect" type="AudioStreamPlayer" parent="Menu/CenterRow/Buttons/LevelSelectButton2"]
 stream = ExtResource( 4 )
 script = ExtResource( 6 )
 
@@ -90,6 +89,9 @@ align = 1
 visible = false
 script = ExtResource( 10 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="IntroTheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
 autoplay = true
+[connection signal="button_down" from="Menu/CenterRow/Buttons/NewGameButton" to="Menu/CenterRow/Buttons/NewGameButton" method="_on_NewGameButton_button_down"]
+[connection signal="pressed" from="Menu/CenterRow/Buttons/NewGameButton" to="Menu/CenterRow/Buttons/NewGameButton" method="_on_NewGameButton_pressed"]
+[connection signal="pressed" from="Menu/CenterRow/Buttons/LevelSelectButton2" to="Menu/CenterRow/Buttons/LevelSelectButton2" method="_on_LevelSelectButton2_pressed"]

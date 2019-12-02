@@ -22,8 +22,11 @@ align = 1
 
 [node name="Button" parent="CenterContainer/VBoxContainer" index="1"]
 margin_top = 50.0
-margin_right = 900.0
+margin_right = 151.0
 margin_bottom = 102.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = null
 
 [node name="MainTheme" type="AudioStreamPlayer" parent="CenterContainer" index="1"]
 stream = ExtResource( 3 )
